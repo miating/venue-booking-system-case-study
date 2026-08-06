@@ -1,0 +1,185 @@
+﻿/* ===== è¨­è¨ˆç³»çµ±è®Šæ•¸ & Reset ===== */
+:root {
+  --color-bg: #fafaf8;
+  --color-surface: #ffffff;
+  --color-border: #e8e4df;
+  --color-text: #1a1714;
+  --color-text-secondary: #6b6560;
+  --color-text-muted: #9e9890;
+  --color-primary: #2c2420;
+  --color-primary-hover: #3d3330;
+  --color-accent: #c8935a;
+  --color-accent-light: #f5ebe0;
+  --color-success: #3a7d44;
+  --color-success-bg: #e8f5ea;
+  --color-warning: #c47d1e;
+  --color-warning-bg: #fef3e2;
+  --color-error: #c0392b;
+  --color-error-bg: #fdecea;
+  --color-pending: #e67e22;
+  --color-confirmed: #27ae60;
+  --color-cancelled: #95a5a6;
+  --color-completed: #2980b9;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.1);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,.12);
+
+  --font-sans: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --transition: 0.18s ease;
+  --max-width: 1400px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* â”€â”€ é€šç”¨ Button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  padding: .7rem 1.6rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+  white-space: nowrap;
+}
+.btn:disabled { opacity: .45; cursor: not-allowed; transform: none !important; }
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+.btn--primary:not(:disabled):hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+.btn--secondary:not(:disabled):hover {
+  border-color: var(--color-primary);
+  background: var(--color-accent-light);
+}
+
+.btn--icon {
+  padding: .5rem .7rem;
+  background: var(--color-border);
+  border-color: var(--color-border);
+  font-size: 1.1rem;
+}
+.btn--sm { padding: .4rem 1rem; font-size: .875rem; }
+
+/* â”€â”€ Site Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.site-header {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.site-header__logo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+.site-header__sub {
+  font-size: .8rem;
+  opacity: .65;
+  letter-spacing: .1em;
+}
+
+/* â”€â”€ Container â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* â”€â”€ Toast é€šçŸ¥ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.sj-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(2rem);
+  background: var(--color-primary);
+  color: #fff;
+  padding: .75rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: .95rem;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity .3s, transform .3s;
+  pointer-events: none;
+}
+.sj-toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.sj-toast--success { background: var(--color-success); }
+.sj-toast--error   { background: var(--color-error); }
+.sj-toast--info    { background: var(--color-primary); }
+
+/* â”€â”€ åé¥‹ Widget â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+#fb-trigger {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9000;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--color-primary); color: #fff; border: none;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: background var(--transition), transform var(--transition);
+}
+#fb-trigger:hover { background: var(--color-accent); transform: scale(1.08); }
+#fb-panel {
+  position: fixed; inset: 0; z-index: 9001;
+  background: rgba(0,0,0,.35);
+  display: flex; align-items: flex-end; justify-content: flex-end;
+  padding: 0 1.5rem 5rem 0;
+}
+#fb-panel__box {
+  background: var(--color-surface); border-radius: var(--radius-lg);
+  padding: 1.25rem; width: 320px; max-width: 90vw;
+  box-shadow: var(--shadow-lg);
+}
+
+/* â”€â”€ RWD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (max-width: 900px) {
+  /* è®“å›žé¥‹æŒ‰éˆ•åœ¨ price panelï¼ˆç´„ 52pxï¼‰ä¹‹ä¸Š */
+  #fb-trigger {
+    bottom: 4.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .btn { padding: .65rem 1.2rem; }
+}
